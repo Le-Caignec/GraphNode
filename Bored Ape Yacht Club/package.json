@@ -1,0 +1,18 @@
+{
+  "name": "Bored Ape Yacht Club",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ Bored Ape Yacht Club",
+    "create-local": "graph create --node http://localhost:8020/ Bored Ape Yacht Club",
+    "remove-local": "graph remove --node http://localhost:8020/ Bored Ape Yacht Club",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Bored Ape Yacht Club",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.36.1",
+    "@graphprotocol/graph-ts": "0.28.1"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
+}
