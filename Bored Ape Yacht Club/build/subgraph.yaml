@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: BAYC
@@ -8,7 +8,7 @@ dataSources:
     source:
       address: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
       abi: BAYC
-      startBlock : 12287507
+      startBlock: 12287507
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -18,8 +18,8 @@ dataSources:
         - User
       abis:
         - name: BAYC
-          file: ./abis/BAYC.json
+          file: BAYC/abis/BAYC.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/bayc.ts
+      file: BAYC/BAYC.wasm
