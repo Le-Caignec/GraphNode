@@ -7,7 +7,7 @@
     "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ Bored Ape Yacht Club",
     "create-local": "graph create --node http://localhost:8020/ Bored Ape Yacht Club",
     "remove-local": "graph remove --node http://localhost:8020/ Bored Ape Yacht Club",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Bored Ape Yacht Club",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Bored",
     "test": "graph test"
   },
   "dependencies": {
