@@ -5,7 +5,7 @@ schema:
 dataSources:
 - kind: ethereum/contract
   name: NFT_Bellecour
-  network: bellecour_blockchain
+  network: bellecour
   source:
     address: "0x0EEcb30E216Cf645E08EA9BD1e3BF81090cbb0c7"
     abi: ERC721
