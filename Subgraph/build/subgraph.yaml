@@ -4,10 +4,10 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: MyERC721Contract
-    network: mainnet
+    name: NFT_Bellecour
+    network: bellecour_blockchain
     source:
-      address: "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d"
+      address: "0x0EEcb30E216Cf645E08EA9BD1e3BF81090cbb0c7"
       abi: ERC721
     mapping:
       kind: ethereum/events
@@ -15,10 +15,13 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Token
+        - OwnerTokenLookup
+        - TokenContract
+        - Owner
       abis:
         - name: ERC721
-          file: MyERC721Contract/abis/ERC721ABI.json
+          file: NFT_Bellecour/abis/ERC721ABI.json
       eventHandlers:
-        - event: Transfer(address,address,uint256)
+        - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: MyERC721Contract/MyERC721Contract.wasm
+      file: NFT_Bellecour/NFT_Bellecour.wasm
