@@ -36,12 +36,18 @@ graph deploy --studio <SUBGRAPH_SLUG>
 ```
 SUBGRAPH_SLUG = name of the subgraph that you created on graph studio UI( write it in lower case in the CLI)
 
+
 ## Docker Implementation 
 
+```
+docker ps --format '{{.Names}}'
+docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"
+docker network ls
+```
 
 ### Hosted services on developpment 
     
-    - Premiere etape mettre en place un archive node
-    - Mettre en place le graph node
+Premiere etape mettre en place un archive node
+Mettre en place le graph node
 
 ### Hosted services on production

@@ -4,12 +4,12 @@ networks:
   thegraph:
     name: graphNode-networks
   blockchain:
-      name: bellecour_blockchain
-      external: true
-
+    name: bellecour_blockchain
+    external: true
 
 services:
   ipfs:
+    container_name: ipfs-service
     image: ipfs/go-ipfs:v0.4.23
     restart: unless-stopped
     networks:
@@ -22,6 +22,7 @@ services:
       - ipfs-volume:${DATA}/ipfs:/data/ipfs
 
   postgres:
+    container_name: postgres-service
     image: postgres
     restart: unless-stopped
     networks:
@@ -39,6 +40,7 @@ services:
       - postgres-volume:${DATA}/postgres:/var/lib/postgresql/data
 
   graphnode:
+    container_name: graphnode-service
     image: graphprotocol/graph-node
     restart: unless-stopped
     networks:
@@ -60,7 +62,7 @@ services:
       postgres_pass: "${DB_PASSWORD}"
       postgres_db: "${DB_NAME}"
       ipfs: "ipfs:5001"
-      ethereum: "bellecour:http://bellecour-archive-node:8545"
+      ethereum: "bellecour:http://archivenode-bellecour:8545"
       GRAPH_NODE_ID: "graphnode_id"
 
 volumes:

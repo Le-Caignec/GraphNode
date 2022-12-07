@@ -6,6 +6,7 @@ networks:
 
 services:
   bellecour_blockchain:
+    container_name: archivenode-bellecour
     restart: unless-stopped
     image: "openethereum/openethereum:v3.3.5"
     command: --config="/home/openethereum/node-config/config.toml"
