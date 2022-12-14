@@ -42,85 +42,6 @@ export class Token extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get contract(): string {
-    let value = this.get("contract");
-    return value!.toString();
-  }
-
-  set contract(value: string) {
-    this.set("contract", Value.fromString(value));
-  }
-
-  get tokenID(): BigInt {
-    let value = this.get("tokenID");
-    return value!.toBigInt();
-  }
-
-  set tokenID(value: BigInt) {
-    this.set("tokenID", Value.fromBigInt(value));
-  }
-
-  get owners(): Array<string> {
-    let value = this.get("owners");
-    return value!.toStringArray();
-  }
-
-  set owners(value: Array<string>) {
-    this.set("owners", Value.fromStringArray(value));
-  }
-
-  get mintTime(): BigInt {
-    let value = this.get("mintTime");
-    return value!.toBigInt();
-  }
-
-  set mintTime(value: BigInt) {
-    this.set("mintTime", Value.fromBigInt(value));
-  }
-
-  get tokenURI(): string {
-    let value = this.get("tokenURI");
-    return value!.toString();
-  }
-
-  set tokenURI(value: string) {
-    this.set("tokenURI", Value.fromString(value));
-  }
-}
-
-export class OwnerTokenLookup extends Entity {
-  constructor(id: string) {
-    super();
-    this.set("id", Value.fromString(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(id != null, "Cannot save OwnerTokenLookup entity without an ID");
-    if (id) {
-      assert(
-        id.kind == ValueKind.STRING,
-        `Entities of type OwnerTokenLookup must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set("OwnerTokenLookup", id.toString(), this);
-    }
-  }
-
-  static load(id: string): OwnerTokenLookup | null {
-    return changetype<OwnerTokenLookup | null>(
-      store.get("OwnerTokenLookup", id)
-    );
-  }
-
-  get id(): string {
-    let value = this.get("id");
-    return value!.toString();
-  }
-
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
-  }
-
   get owner(): string {
     let value = this.get("owner");
     return value!.toString();
@@ -130,115 +51,13 @@ export class OwnerTokenLookup extends Entity {
     this.set("owner", Value.fromString(value));
   }
 
-  get token(): string {
-    let value = this.get("token");
+  get tokenURI(): string {
+    let value = this.get("tokenURI");
     return value!.toString();
   }
 
-  set token(value: string) {
-    this.set("token", Value.fromString(value));
-  }
-
-  get contract(): string {
-    let value = this.get("contract");
-    return value!.toString();
-  }
-
-  set contract(value: string) {
-    this.set("contract", Value.fromString(value));
-  }
-
-  get quantity(): BigInt {
-    let value = this.get("quantity");
-    return value!.toBigInt();
-  }
-
-  set quantity(value: BigInt) {
-    this.set("quantity", Value.fromBigInt(value));
-  }
-}
-
-export class TokenContract extends Entity {
-  constructor(id: string) {
-    super();
-    this.set("id", Value.fromString(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(id != null, "Cannot save TokenContract entity without an ID");
-    if (id) {
-      assert(
-        id.kind == ValueKind.STRING,
-        `Entities of type TokenContract must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set("TokenContract", id.toString(), this);
-    }
-  }
-
-  static load(id: string): TokenContract | null {
-    return changetype<TokenContract | null>(store.get("TokenContract", id));
-  }
-
-  get id(): string {
-    let value = this.get("id");
-    return value!.toString();
-  }
-
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
-  }
-
-  get name(): string | null {
-    let value = this.get("name");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toString();
-    }
-  }
-
-  set name(value: string | null) {
-    if (!value) {
-      this.unset("name");
-    } else {
-      this.set("name", Value.fromString(<string>value));
-    }
-  }
-
-  get symbol(): string | null {
-    let value = this.get("symbol");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toString();
-    }
-  }
-
-  set symbol(value: string | null) {
-    if (!value) {
-      this.unset("symbol");
-    } else {
-      this.set("symbol", Value.fromString(<string>value));
-    }
-  }
-
-  get isLikelyERC1155(): boolean {
-    let value = this.get("isLikelyERC1155");
-    return value!.toBoolean();
-  }
-
-  set isLikelyERC1155(value: boolean) {
-    this.set("isLikelyERC1155", Value.fromBoolean(value));
-  }
-
-  get tokens(): Array<string> {
-    let value = this.get("tokens");
-    return value!.toStringArray();
-  }
-
-  set tokens(value: Array<string>) {
-    this.set("tokens", Value.fromStringArray(value));
+  set tokenURI(value: string) {
+    this.set("tokenURI", Value.fromString(value));
   }
 }
 
@@ -280,14 +99,5 @@ export class Owner extends Entity {
 
   set tokens(value: Array<string>) {
     this.set("tokens", Value.fromStringArray(value));
-  }
-
-  get numTokens(): BigInt {
-    let value = this.get("numTokens");
-    return value!.toBigInt();
-  }
-
-  set numTokens(value: BigInt) {
-    this.set("numTokens", Value.fromBigInt(value));
   }
 }
